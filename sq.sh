@@ -25,7 +25,7 @@ fi
 
 if [ "$DOCKER_WAIT_FOR" = pg ]; then
 	#Ahora chequeo que se pueda hacer una conexion (pg_isready similar)
-	${TOBA_DIR}/bin/connection_test $TOBA_BASE_HOST $TOBA_BASE_PORT $TOBA_BASE_USER TOBA_BASE_PASS postgres;
+	${TOBA_DIR}/bin/connection_test $TOBA_BASE_HOST $TOBA_BASE_PORT $TOBA_BASE_USER $TOBA_BASE_PASS postgres;
 fi
 if [ -z "$PARAMETRO_INSTALADOR_CREAR_DB" ]; then
 	export PARAMETRO_INSTALADOR_CREAR_DB=--crear-db
