@@ -11,6 +11,9 @@ RUN localedef -i es_AR  -c -f UTF-8 -A /usr/share/locale/locale.alias es_AR.UTF-
 ENV LANG es_AR.UTF-8
 
 #--------------------------------------------- PHP CONFIG -----------------------------------------
+
+RUN docker-php-ext-install sockets
+
 RUN printf "error_reporting = E_ALL\n" >> /usr/local/etc/php/php.ini
 RUN printf "display_errors=On\n" >> /usr/local/etc/php/php.ini
 RUN printf "output_buffering=4096\n" >> /usr/local/etc/php/php.ini
