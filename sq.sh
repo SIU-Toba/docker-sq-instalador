@@ -52,10 +52,10 @@ else
 	if ! grep -q 'entorno_toba' /root/.bashrc; then
 	    SCRIPT_ENTORNO_TOBA=${TOBA_INSTALACION_DIR}/entorno_toba.env
 	    echo ". ${SCRIPT_ENTORNO_TOBA}" >> /root/.bashrc
-	    if [ -z "$TOBA_PROYECTO_DIR" ]; then
+	    if [ -z "$PROYECTO_DIR" ]; then
 		echo "cd ${TOBA_DIR};" >> /root/.bashrc
 	    else
-		echo "cd ${TOBA_PROYECTO_DIR};" >> /root/.bashrc
+		echo "cd ${PROYECTO_DIR};" >> /root/.bashrc
 	    fi
 	fi
 fi
