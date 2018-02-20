@@ -33,6 +33,10 @@ fi
 
 find /var/local -maxdepth 3 -name composer.json -execdir composer install --no-interaction \;
 
+if [ $JASPER_INICIAR ]; then
+    java -jar ${PROYECTO_DIR}/vendor/siu-toba/jasper/JavaBridge/WEB-INF/lib/JavaBridge.jar SERVLET:$JASPER_PORT &
+fi
+
 #Instala el proyecto y lo saca de modo mantenimiento
 ${PROYECTO_DIR}/bin/instalador proyecto:instalar -m -n --no-progress ${PARAMETRO_INSTALADOR_CREAR_DB}
 
