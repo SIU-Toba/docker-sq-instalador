@@ -27,6 +27,10 @@ ENV NVM_DIR /home/node/.nvm
 RUN git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 RUN . ~/.nvm/nvm.sh && nvm install $NODE_VERSION
 RUN echo ". ~/.nvm/nvm.sh" >> ~/.bashrc
+#---------------------------------------- CRONTAB -------------------------------------------------
+RUN apt-get clean && apt-get update
+RUN apt-get update && apt-get -y install cron 
+
 #--------------------------------------------------------------------------------------------------
 COPY sq.sh /entrypoint.d/
 
