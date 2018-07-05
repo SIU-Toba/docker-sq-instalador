@@ -13,6 +13,7 @@ ENV LANG es_AR.UTF-8
 #--------------------------------------------- PHP CONFIG -----------------------------------------
 
 RUN docker-php-ext-install sockets
+RUN docker-php-ext-install soap
 
 RUN printf "error_reporting = E_ALL\n" >> /usr/local/etc/php/php.ini
 RUN printf "display_errors=On\n" >> /usr/local/etc/php/php.ini
