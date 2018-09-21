@@ -1,4 +1,4 @@
-FROM siutoba/docker-web:latest
+FROM siutoba/docker-web:v1.5
 MAINTAINER esassone@siu.edu.ar
 
 #--------------------------------------------- ENCODIGN es_AR.URF-8 -----------------------------------------
