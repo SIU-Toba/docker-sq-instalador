@@ -32,7 +32,21 @@ RUN echo ". ~/.nvm/nvm.sh" >> ~/.bashrc
 RUN apt-get clean && apt-get update
 RUN apt-get update && apt-get -y install cron 
 
+#--------------------------------------------- JAVA (Dejar al final este bloque) -----------------------------------------
+
+RUN mkdir -p /usr/share/man/man1
+RUN apt-get clean && apt-get update
+RUN apt-get install -y --no-install-recommends openjdk-8-jre-headless
+RUN echo "deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty multiverse \
+deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty-updates multiverse \
+deb http://us-west-2.ec2.archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" | tee /etc/apt/sources.list.d/multiverse.list 
+RUN apt-get clean && apt-get update
+ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND teletype
+RUN apt-get install -y --reinstall --allow-unauthenticated ttf-mscorefonts-installer
+
 #--------------------------------------------------------------------------------------------------
+
 COPY sq.sh /entrypoint.d/
 
 ENV JASPER_HOST jasper
