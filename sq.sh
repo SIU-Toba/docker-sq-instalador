@@ -40,6 +40,16 @@ else
    echo "-------------No se esta iniciando JASPER--------------------";
 fi
 
+# Need to remove this file or we get "java.awt.AWTError: Assistive Technology not found: org.GNOME.Accessibility.AtkWrapper" when running jasper reports
+# See https://github.com/docker-library/tomcat/issues/80
+# /docker-java-home -> /usr/lib/jvm/java-8-openjdk-amd64 -> /etc/java-8-openjdk
+if [ -f /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/accessibility.properties ]
+then
+   rm /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/accessibility.properties
+else
+   echo "File does not exists: /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/accessibility.properties"
+fi
+
 #Instala el proyecto y lo saca de modo mantenimiento
 ${PROYECTO_DIR}/bin/instalador proyecto:instalar -m -n --no-progress ${PARAMETRO_INSTALADOR_CREAR_DB}
 
