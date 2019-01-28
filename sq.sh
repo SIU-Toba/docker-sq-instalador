@@ -50,6 +50,13 @@ else
    echo "File does not exists: /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/accessibility.properties"
 fi
 
+if [ -f /etc/java-8-openjdk/accessibility.properties ]
+then
+   rm /etc/java-8-openjdk/accessibility.properties
+else
+   echo "File does not exists: /etc/java-8-openjdk/accessibility.properties"
+fi
+
 #Instala el proyecto y lo saca de modo mantenimiento
 ${PROYECTO_DIR}/bin/instalador proyecto:instalar -m -n --no-progress ${PARAMETRO_INSTALADOR_CREAR_DB}
 
