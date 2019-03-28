@@ -31,7 +31,7 @@ else
 	export PARAMETRO_INSTALADOR_CREAR_DB=
 fi
 
-find /var/local -maxdepth 3 -name composer.json -execdir composer install --no-interaction \;
+find ${PROYECTO_DIR} -name composer.json -execdir composer install --no-interaction \;
 
 if [ $JASPER_INICIAR ]; then
     echo "------------Ininciando JASPER-------------";
