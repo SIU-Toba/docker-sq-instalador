@@ -1,4 +1,4 @@
-FROM siutoba/docker-web-7.0
+FROM siutoba/docker-web-php-7.1
 MAINTAINER esassone@siu.edu.ar
 
 #--------------------------------------------- ENCODIGN es_AR.URF-8 -----------------------------------------
@@ -21,7 +21,7 @@ RUN printf "output_buffering=4096\n" >> /usr/local/etc/php/php.ini
 
 #--------------------------------------------- NODE Y NVM -----------------------------------------
 #change it to your required node version
-ENV NODE_VERSION 0.10
+ENV NODE_VERSION 10.0
 #needed by nvm install
 ENV NVM_DIR /home/node/.nvm
 
